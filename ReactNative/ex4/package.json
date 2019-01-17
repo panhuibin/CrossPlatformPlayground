@@ -32,6 +32,7 @@
     "enzyme-adapter-react-16": "^1.7.1",
     "jest": "^23.6.0",
     "react-dom": "^16.7.0",
+    "react-native-mock-render": "^0.1.2",
     "react-test-renderer": "^16.7.0",
     "redux-mock-store": "^1.5.3",
     "redux-saga-test-plan": "^3.7.0"

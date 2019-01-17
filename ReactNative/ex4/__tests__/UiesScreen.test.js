@@ -2,10 +2,13 @@ import renderer from 'react-test-renderer'
 import React from 'react'
 import {Text, Button, Image} from 'react-native'
 import UiesScreen from "../js/screen/UiesScreen";
-import {shallow} from "enzyme";
+import {shallow, mount} from "enzyme";
 import TestImage from "../js/component/TestImage";
 
 describe('test Ui Screen', () => {
+  test('mount', () => {
+    const wrapper = mount(<UiesScreen/>)
+  })
   test('check has one <Text/> child', ()=> {
     const wrapper = shallow(<UiesScreen/>)
     expect(wrapper.find(Text).length).toBe(1)
