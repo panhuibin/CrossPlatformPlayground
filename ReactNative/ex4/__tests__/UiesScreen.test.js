@@ -8,6 +8,7 @@ import TestImage from "../js/component/TestImage";
 describe('test Ui Screen', () => {
   test('mount', () => {
     const wrapper = mount(<UiesScreen/>)
+    console.log(wrapper.debug())
   })
   test('check has one <Text/> child', ()=> {
     const wrapper = shallow(<UiesScreen/>)

@@ -3,7 +3,7 @@ import {View, StyleSheet, Button, TextInput, TouchableWithoutFeedback, Animated}
 import {connect} from 'react-redux'
 import ActionSheet from "../component/action_sheet/ActionSheet";
 
-class ActionSheetDemo extends Component {
+export class ActionSheetDemo extends Component {
   render() {
     return (
       <View style={styles.root}>

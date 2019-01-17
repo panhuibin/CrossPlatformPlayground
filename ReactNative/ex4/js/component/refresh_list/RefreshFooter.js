@@ -28,19 +28,19 @@ export default class RefreshFooter extends Component {
         footer =
           <View style={styles.loadingView}>
             <ActivityIndicator size="small"/>
-            <Text style={styles.refreshingText}>{this.props.footerRefreshingText}</Text>
+            <Text style={styles.refreshingText}>{this.defaultProps.footerRefreshingText}</Text>
           </View>;
         break;
       case RefreshState.CanLoadMore:
         footer =
           <View style={styles.loadingView}>
-            <Text style={styles.footerText}>{this.props.footerLoadMoreText}</Text>
+            <Text style={styles.footerText}>{this.defaultProps.footerLoadMoreText}</Text>
           </View>;
         break;
       case RefreshState.NoMoreData:
         footer =
           <View style={styles.loadingView}>
-            <Text style={styles.footerText}>{this.props.footerNoMoreDataText}</Text>
+            <Text style={styles.footerText}>{this.defaultProps.footerNoMoreDataText}</Text>
           </View>;
         break;
       case RefreshState.Failure:
@@ -48,7 +48,7 @@ export default class RefreshFooter extends Component {
           <TouchableOpacity style={styles.loadingView} onPress={()=>{
             this.props.onRetryLoading && this.props.onRetryLoading();
           }}>
-            <Text style={styles.footerText}>{this.props.footerFailureText}</Text>
+            <Text style={styles.footerText}>{this.defaultProps.footerFailureText}</Text>
           </TouchableOpacity>;
         break;
     }

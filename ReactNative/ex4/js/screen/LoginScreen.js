@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 import {View, Image, Button, Text, Animated, TouchableOpacity, StyleSheet} from 'react-native'
 import {TRY_LOGIN, tryLogin} from "../redux/actionSession";
 import {connect} from 'react-redux'
+import RefreshFooter from '../component/refresh_list/RefreshFooter';
+import RefreshState from '../component/refresh_list/RefreshState';
 
-class LoginScreen extends Component {
+export class LoginScreen extends Component {
     state = {
         animValue: new Animated.Value(0),
     }
@@ -81,6 +83,7 @@ class LoginScreen extends Component {
                         <Text style={styles.skipLogin}> SKIP FOR NOW </Text>
                     </TouchableOpacity>
                 </Animated.View>
+                <RefreshFooter state={RefreshState.Idle}/>
             </View>
         )
 

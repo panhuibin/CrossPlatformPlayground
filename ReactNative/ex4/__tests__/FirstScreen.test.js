@@ -1,11 +1,12 @@
 import React from 'react'
 import {FlatList} from 'react-native'
-import {shallow} from "enzyme"
+import {shallow, mount} from "enzyme"
 import ConnectedFirstScreen, {FirstScreen} from "../js/screen/FirstScreen"
 import ReadedComponent from "../js/component/ReadedComponent";
 
 describe('Test UI', () => {
   let wrapper
+  let mountWrapper
   let dispatchFun
   let open
 
@@ -19,6 +20,13 @@ describe('Test UI', () => {
       dispatch: dispatchFun, open: open
     }
     wrapper = shallow(<FirstScreen {...props}/>)
+    mountWrapper = mount(<FirstScreen {...props}/>)
+  })
+
+  test('check mount', () => {
+    console.log(wrapper.debug())
+    console.log(wrapper.dive().getElement().debug())
+    console.log(mountWrapper.debug())
   })
 
   test('exist one FlatList', () => {

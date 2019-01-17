@@ -39,7 +39,7 @@ export class FirstScreen extends Component {
 
         <FirstCarousel title="Recommended"/>
         <FirstCarousel title="Popular Book"/>
-        <FirstCarousel title="Recommended"/>
+        <FirstCarousel title="Top 50"/>
 
       </ScrollView>
     )
