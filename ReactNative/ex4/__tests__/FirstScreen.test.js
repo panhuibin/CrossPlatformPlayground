@@ -3,10 +3,29 @@ import {FlatList} from 'react-native'
 import {shallow, mount} from "enzyme"
 import ConnectedFirstScreen, {FirstScreen} from "../js/screen/FirstScreen"
 import ReadedComponent from "../js/component/ReadedComponent";
+//import {shallowUntilTarget} from "./utils"
+import FirstCarousel from "../js/component/FirstCarousel";
+
+jest.mock('ScrollView', () => {
+  const RealComponent = require.requireActual('ScrollView');
+  const React = require('React');
+  class ScrollView extends React.Component {
+    scrollTo() {
+    }
+
+    render() {
+      return React.createElement('ScrollView', this.props, this.props.children);
+    }
+  }
+  ScrollView.propTypes = RealComponent.propTypes;
+  return ScrollView;
+});
+
 
 describe('Test UI', () => {
   let wrapper
   let mountWrapper
+  let untilTargetWrapper
   let dispatchFun
   let open
 
@@ -21,12 +40,20 @@ describe('Test UI', () => {
     }
     wrapper = shallow(<FirstScreen {...props}/>)
     mountWrapper = mount(<FirstScreen {...props}/>)
+    // untilTargetWrapper = shallowUntilTarget(
+    //   <FirstScreen {...props} />,
+    //   FirstCarousel
+    // );
   })
 
   test('check mount', () => {
-    console.log(wrapper.debug())
-    console.log(wrapper.dive().getElement().debug())
-    console.log(mountWrapper.debug())
+    //console.log("wrapper:"+ wrapper.debug())
+    //console.log("wrapper dive:"+wrapper.dive().debug())
+    console.log("mountWrapper:"+mountWrapper.html())
+  })
+  test('shallowUntilTarget', ()=>{
+
+
   })
 
   test('exist one FlatList', () => {
